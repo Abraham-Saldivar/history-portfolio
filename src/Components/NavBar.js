@@ -128,7 +128,7 @@ function NavBar() {
                 1600's
               </CustomButton>
               <CustomButton href="section-two" color="black" variant="text">
-                Section 2
+                1700's
               </CustomButton>
               <CustomButton href="section-three" color="black" variant="text">
                 Section 3
