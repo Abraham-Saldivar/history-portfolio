@@ -11,3 +11,74 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  position: relative;
+  cursor: pointer;
+}
+
+.popup {
+  position: absolute;
+  top: -25px;
+  /* Adjust as needed */
+  left: 50%;
+  /* Adjust as needed */
+  /* transform: translateX(+150%); */
+  background-color: #fff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 5px;
+  width: 150px;
+  /* Adjust as needed */
+  z-index: 999;
+  /* Ensure it appears on top of other content */
+  display: block;
+}
+
+
+
+
+
+
+.highlighted {
+  color: #000000 !important;
+  /* background-color: yellow !important; */
+  background-color: #B0E7FD;
+  padding: 10px;
+  text-decoration: underline;
+  border-radius: 12px;
+  /* animation: highlightAnimation 200ms ease-in-out normal forwards; */
+  animation: highlightAnimation 200ms ease-in-out alternate-reverse both;
+}
+@keyframes highlightAnimation {
+  0% {}
+
+  100% {
+    transform: scale(1.09);
+  }
+}
+
+
+.timeline_item:hover{
+  cursor: pointer;
+  animation: enlargeText 200ms ease-in-out normal forwards;
+  font-weight: 900;
+  text-decoration:overline;
+}
+
+@keyframes enlargeText {
+  0% {
+  }
+  100% {
+    transform: scale(1.09);
+  }
+}

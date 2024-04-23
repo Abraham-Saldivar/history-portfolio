@@ -1,4 +1,4 @@
-import toast, { Toaster } from "react-hot-toast";
+// import toast, { Toaster } from "react-hot-toast";
 import {
   Box,
   Toolbar,
@@ -8,9 +8,9 @@ import {
   styled,
 } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import ShareIcon from "@mui/icons-material/Share";
-import EmailIcon from "@mui/icons-material/Email";
+// import InstagramIcon from "@mui/icons-material/Instagram";
+// import ShareIcon from "@mui/icons-material/Share";
+// import EmailIcon from "@mui/icons-material/Email";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 
 function NavBar() {
@@ -43,19 +43,24 @@ function NavBar() {
   });
   const CustomButton = styled(Button)`
     &:hover {
-      background-color: black;
+      background-color: white;
     }
   `;
 
   const CustomIconButton = styled(IconButton)`
     &:hover {
-      background-color: black;
+      background-color: white;
     }
   `;
   return (
     <>
-      <Toaster />
-      <CustomAppBar className="custom-appbar" position="static" color="primary">
+      {/* <Toaster /> */}
+      <CustomAppBar
+        sx={{ padding: 1 }}
+        className="custom-appbar"
+        position="static"
+        color="primary"
+      >
         <Toolbar
           sx={{
             display: "flex",
@@ -63,13 +68,8 @@ function NavBar() {
           }}
         >
           <Box display="flex" alignItems="center">
-            <CustomIconButton
-              href="/"
-              size="large"
-              edge="start"
-              color="inherit"
-            >
-              <AutoStoriesIcon sx={{ fontSize: "5vh" }} />
+            <CustomIconButton href="/" size="large" edge="start" color="white">
+              <AutoStoriesIcon sx={{ fontSize: "5vh", color: "#000000" }} />
             </CustomIconButton>
             <Box marginLeft={2}>
               <Typography sx={{ fontSize: "2vh" }}>
@@ -124,18 +124,17 @@ function NavBar() {
               justifyContent="flex-end"
               sx={{ flexGrow: 1, padding: 1.25 }}
             >
-              <CustomButton href="about-us" color="inherit" variant="text">
-                Section 1
+              <CustomButton href="section-one" color="black" variant="text">
+                1600's
               </CustomButton>
-              <CustomButton href="contact-us" color="inherit" variant="text">
+              <CustomButton href="section-two" color="black" variant="text">
                 Section 2
               </CustomButton>
-              <CustomButton
-                href="news-and-events"
-                color="inherit"
-                variant="text"
-              >
+              <CustomButton href="section-three" color="black" variant="text">
                 Section 3
+              </CustomButton>
+              <CustomButton href="about-us" color="black" variant="text">
+                About Us
               </CustomButton>
             </Box>
           </Box>
