@@ -131,11 +131,11 @@ function NavBar() {
                 1700's
               </CustomButton>
               <CustomButton href="section-three" color="black" variant="text">
-                Section 3
+                1800's
               </CustomButton>
-              <CustomButton href="about-us" color="black" variant="text">
+              {/* <CustomButton href="about-us" color="black" variant="text">
                 About Us
-              </CustomButton>
+              </CustomButton> */}
             </Box>
           </Box>
         </Toolbar>

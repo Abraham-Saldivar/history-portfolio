@@ -1,130 +1,87 @@
 import { Box, Typography } from "@mui/material";
+import { useState } from "react";
+import EightHundredT from "../Timelines/EightHundredT";
+import QuizFormThree from "../QuizComponents/QuizFormThree";
+
 function SectionThree() {
+  const [hoveredSection, setHoveredSection] = useState(null);
+
+  const handleHoverSection = (section) => {
+    setHoveredSection(section);
+  };
   return (
     <>
       <Box>
-        <Typography padding={5} sx={{ fontSize: "4vh", textAlign: "center" }}>
-          Section three List
+        <Typography
+          padding={5}
+          sx={{
+            fontSize: "4vh",
+            textAlign: "center",
+            textDecoration: "overline",
+          }}
+        >
+          Social Economic Status - African Americans 1800s
         </Typography>
       </Box>
-
-      <Box padding={5}>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
-          <i>Quid autem habent admirationis, cum prope accesseris?</i> Videmusne
-          ut pueri ne verberibus quidem a contemplandis rebus perquirendisque
-          deterreantur? Quantam rem agas, ut Circeis qui habitet totum hunc
-          mundum suum municipium esse existimet?{" "}
-          <a href="http://loripsum.net/" target="_blank">
-            Que Manilium, ab iisque M.
-          </a>{" "}
-          At enim iam dicitis virtutem non posse constitui, si ea, quae extra
-          virtutem sint, ad beate vivendum pertineant.{" "}
-          <b>Duo Reges: constructio interrete.</b> Qui est in parvis malis. Quis
-          Aristidem non mortuum diligit?{" "}
-        </p>
-
-        <dl>
-          <dt>
-            <dfn>Bork</dfn>
-          </dt>
-          <dd>Hoc est non modo cor non habere, sed ne palatum quidem.</dd>
-          <dt>
-            <dfn>Bork</dfn>
-          </dt>
-          <dd>
-            Non potes ergo ista tueri, Torquate, mihi crede, si te ipse et tuas
-            cogitationes et studia perspexeris;
-          </dd>
-          <dt>
-            <dfn>Bork</dfn>
-          </dt>
-          <dd>
-            Nam illud vehementer repugnat, eundem beatum esse et multis malis
-            oppressum.
-          </dd>
-        </dl>
-
-        <p>
-          Hoc etsi multimodis reprehendi potest, tamen accipio, quod dant.{" "}
-          <b>Quid ergo?</b> Sunt enim quasi prima elementa naturae, quibus
-          ubertas orationis adhiberi vix potest, nec equidem eam cogito
-          consectari. <b>Hic nihil fuit, quod quaereremus.</b> Vide, ne etiam
-          menses! nisi forte eum dicis, qui, simul atque arripuit, interficit.
-          Quasi vero, inquit, perpetua oratio rhetorum solum, non etiam
-          philosophorum sit. <b>In schola desinis.</b>{" "}
-          <i>Verum hoc idem saepe faciamus.</i>{" "}
-          <mark>Praeteritis, inquit, gaudeo.</mark>{" "}
-          <i>Num quid tale Democritus?</i>{" "}
-        </p>
-
-        <p>
-          Verba tu fingas et ea dicas, quae non sentias? Negat esse eam, inquit,
-          propter se expetendam. Aliter enim explicari, quod quaeritur, non
-          potest. Homines optimi non intellegunt totam rationem everti, si ita
-          res se habeat.{" "}
-          <i>Est enim effectrix multarum et magnarum voluptatum.</i> Post enim
-          Chrysippum eum non sane est disputatum. Etsi qui potest intellegi aut
-          cogitari esse aliquod animal, quod se oderit?{" "}
-          <a href="http://loripsum.net/" target="_blank">
-            Hunc vos beatum;
-          </a>{" "}
-          Sic enim censent, oportunitatis esse beate vivere.{" "}
-          <a href="http://loripsum.net/" target="_blank">
-            Quos quidem tibi studiose et diligenter tractandos magnopere censeo.
-          </a>{" "}
-          Vides igitur te aut ea sumere, quae non concedantur, aut ea, quae
-          etiam concessa te nihil iuvent. Sin ea non neglegemus neque tamen ad
-          finem summi boni referemus, non multum ab Erilli levitate aberrabimus.{" "}
-        </p>
-
-        <ul>
-          <li>
-            Nam quibus rebus efficiuntur voluptates, eae non sunt in potestate
-            sapientis.
-          </li>
-          <li>
-            Vitae autem degendae ratio maxime quidem illis placuit quieta.
-          </li>
-          <li>
-            Itaque rursus eadem ratione, qua sum paulo ante usus, haerebitis.
-          </li>
-          <li>
-            Quaesita enim virtus est, non quae relinqueret naturam, sed quae
-            tueretur.
-          </li>
-        </ul>
-
-        <p>
-          <b>Sed haec in pueris;</b>{" "}
-          <a href="http://loripsum.net/" target="_blank">
-            Videmus igitur ut conquiescere ne infantes quidem possint.
-          </a>{" "}
-          <a href="http://loripsum.net/" target="_blank">
-            Cur id non ita fit?
-          </a>{" "}
-          Illorum vero ista ipsa quam exilia de virtutis vi! Quam tantam volunt
-          esse, ut beatum per se efficere possit. <i>Quae ista amicitia est?</i>{" "}
-          Si quae forte-possumus.{" "}
-        </p>
-
-        <p>
-          <a href="http://loripsum.net/" target="_blank">
-            Quare conare, quaeso.
-          </a>{" "}
-          Ergo hoc quidem apparet, nos ad agendum esse natos.{" "}
-          <b>Sed ad bona praeterita redeamus.</b> Utrum igitur percurri omnem
-          Epicuri disciplinam placet an de una voluptate quaeri, de qua omne
-          certamen est? Qui convenit? Quicquid porro animo cernimus, id omne
-          oritur a sensibus; Sin autem ad animum, falsum est, quod negas animi
-          ullum esse gaudium, quod non referatur ad corpus. Quid in isto egregio
-          tuo officio et tanta fide-sic enim existimo-ad corpus refers?{" "}
-          <a href="http://loripsum.net/" target="_blank">
-            Vitae autem degendae ratio maxime quidem illis placuit quieta.
-          </a>{" "}
-          Ex quo illud efficitur, qui bene cenent omnis libenter cenare, qui
-          libenter, non continuo bene.{" "}
-        </p>
+      <Box
+        display="flex"
+        flexDirection="row"
+        justifyContent="center"
+        padding={5}
+      >
+        <Box width={{ minWidth: "50%" }}>
+          <EightHundredT handleHoverSection={handleHoverSection} />
+        </Box>
+        <Box display="flex" flexDirection="column" justifyContent="center">
+          <Typography
+            sx={{ marginBottom: "25px" }}
+            className={hoveredSection === "Timeline Five" ? "highlighted" : ""}
+          >
+            Add you viewing ten equally believe put. Separate families my on
+            drawings do oh offended strictly elegance. Perceive jointure be
+            mistress by jennings properly. An admiration at he discovered
+            difficulty continuing. We in building removing possible suitable
+            friendly on. Nay middleton him admitting consulted and behaviour son
+            household. Recurred advanced he oh together entrance speedily
+            suitable. Ready tried gay state fat could boy its among shall. Mind
+            what no by kept. Celebrated no he decisively thoroughly. Our asked
+            sex point her she seems. New plenty she horses parish design you.
+            Stuff sight equal of my woody. Him children bringing goodness
+            suitable she entirely put far daughter. Prevailed sincerity
+            behaviour to so do principle mr. As departure at no propriety
+            zealously my. On dear rent if girl view. First on smart there he
+            sense. Earnestly enjoyment her you resources. Brother chamber ten
+            old against. Mr be cottage so related minuter is. Delicate say and
+            blessing ladyship exertion few margaret. Delight herself welcome
+            against smiling its for. Suspected discovery by he affection
+            household of principle perfectly he.
+          </Typography>
+          <Typography
+            sx={{ marginBottom: "25px" }}
+            className={hoveredSection === "Timeline Six" ? "highlighted" : ""}
+          >
+            As absolute is by amounted repeated entirely ye returned. These
+            ready timed enjoy might sir yet one since. Years drift never if
+            could forty being no. On estimable dependent as suffering on my.
+            Rank it long have sure in room what as he. Possession travelling
+            sufficient yet our. Talked vanity looked in to. Gay perceive led
+            believed endeavor. Rapturous no of estimable oh therefore direction
+            up. Sons the ever not fine like eyes all sure. Prepared do an
+            dissuade be so whatever steepest. Yet her beyond looked either day
+            wished nay. By doubtful disposed do juvenile an. Now curiosity you
+            explained immediate why behaviour. An dispatched impossible of of
+            melancholy favourable. Our quiet not heart along scale sense timed.
+            Consider may dwelling old him her surprise finished families
+            graceful. Gave led past poor met fine was new. Examine she brother
+            prudent add day ham. Far stairs now coming bed oppose hunted become
+            his. You zealously departure had procuring suspicion. Books whose
+            front would purse if be do decay. Quitting you way formerly disposed
+            perceive ladyship are. Common turned boy direct and yet.
+          </Typography>
+        </Box>
+      </Box>
+      <Box>
+        <QuizFormThree />
       </Box>
     </>
   );

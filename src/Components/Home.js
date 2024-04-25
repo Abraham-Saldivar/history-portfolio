@@ -30,164 +30,76 @@ function Home() {
       <Box>
         <Typography
           padding={5}
-          sx={{ fontSize: "calc(36px + 2vmin)", textAlign: "center" }}
+          sx={{
+            fontSize: "4vh",
+            textAlign: "center",
+            textDecoration: "overline",
+          }}
         >
-          Home Page
+          History 1301 - Interactive Portfolio
         </Typography>
       </Box>
-      <Box
-        padding={5}
-        className="text"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
+      <Box padding={5} className="text">
         {showPopup && (
-          <div
+          <Typography
             className="popup"
-            style={{ top: popupPosition.y, left: popupPosition.x }}
+            style={{
+              top: popupPosition.y - 175, // Adjust the top position (e.g., subtract 40 pixels)
+              left: popupPosition.x,
+              transform: "translateX(-50%)", // Center horizontally
+            }}
           >
             This is the summary
-          </div>
+          </Typography>
         )}
-        <h1>
-          Atque ab his initiis profecti omnium virtutum et originem et
-          progressionem persecuti sunt.
-        </h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Verum hoc
-          loco sumo verbis his eandem certe vim voluptatis Epicurum nosse quam
-          ceteros.{" "}
-          <a href="http://loripsum.net/" rel="noreferrer" target="_blank">
-            Comprehensum, quod cognitum non habet?
-          </a>{" "}
-          <code>Estne, quaeso, inquam, sitienti in bibendo voluptas?</code> Quid
-          enim dicis omne animal, simul atque sit ortum, applicatum esse ad se
-          diligendum esseque in se conservando occupatum?{" "}
-          <i>Illis videtur, qui illud non dubitant bonum dicere -;</i> Qui autem
-          voluptate vitam effici beatam putabit, qui sibi is conveniet, si
-          negabit voluptatem crescere longinquitate? Duo Reges: constructio
-          interrete. <i>Multoque hoc melius nos veriusque quam Stoici.</i> Deque
-          his rebus satis multa in nostris de re publica libris sunt dicta a
-          Laelio. Cur fortior sit, si illud, quod tute concedis, asperum et vix
-          ferendum putabit? Quasi vero aut concedatur in omnibus stultis aeque
-          magna esse vitia, et eadem inbecillitate et inconstantia L.{" "}
-          <code>Hic ambiguo ludimur.</code>{" "}
-        </p>
+        <Typography
+          padding={4}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          sx={{
+            lineHeight: 2.5,
+            fontSize: "calc(1.5px + 2vmin)",
+            minWidth: "50%",
+          }}
+        >
+          In Ira berlin’s, Many Thousands Gone, he accounts that historically
+          Africans and Europeans have been intertwined with each other during
+          the 1600s. Creole societies emerged in trading centers the first of
+          which to appear were in trading centers along the coasts of Africa.
+          These creoles developed intercultural skills and used these skills to
+          mediate trade between Europeans and Africans. When Europe started
+          colonizing the Americas, creole slaves followed the expansion, so
+          creole societies emerged on the rim of the atlantic. During this era,
+          skin color had little effect on their lives. Instead the skills they
+          had as intermediaries proved their merit. Although creoles that
+          identified more towards either European or African culture were
+          shunned by the opposite, structurally there was nothing prohibiting
+          them from improving their status. Even some creole slaves were able to
+          purchase their freedom and continue their lives as merchants. It was
+          apparent that there were just societies with slaves, not slave
+          societies which the colonies came to be in the 1700s.
+        </Typography>
 
-        <blockquote cite="http://loripsum.net">
-          E quo efficitur, non ut nos non intellegamus quae vis sit istius
-          verbi, sed ut ille suo more loquatur, nostrum neglegat.
-        </blockquote>
-
-        <ul>
-          <li>Qui ita affectus, beatum esse numquam probabis;</li>
-          <li>
-            Sed tamen enitar et, si minus multa mihi occurrent, non fugiam ista
-            popularia.
-          </li>
-          <li>
-            Etsi ea quidem, quae adhuc dixisti, quamvis ad aetatem recte isto
-            modo dicerentur.
-          </li>
-          <li>
-            Quicquid enim a sapientia proficiscitur, id continuo debet expletum
-            esse omnibus suis partibus;
-          </li>
-          <li>
-            Quis suae urbis conservatorem Codrum, quis Erechthei filias non
-            maxime laudat?
-          </li>
-          <li>
-            Rhetorice igitur, inquam, nos mavis quam dialectice disputare?
-          </li>
-        </ul>
-
-        <dl>
-          <dt>
-            <dfn>Audeo dicere, inquit.</dfn>
-          </dt>
-          <dd>
-            Ex ea difficultate illae fallaciloquae, ut ait Accius, malitiae
-            natae sunt.
-          </dd>
-          <dt>
-            <dfn>Paria sunt igitur.</dfn>
-          </dt>
-          <dd>At iam decimum annum in spelunca iacet.</dd>
-          <dt>
-            <dfn>Quo modo?</dfn>
-          </dt>
-          <dd>
-            Quicquid enim a sapientia proficiscitur, id continuo debet expletum
-            esse omnibus suis partibus;
-          </dd>
-          <dt>
-            <dfn>Tu quidem reddes;</dfn>
-          </dt>
-          <dd>Quodsi ipsam honestatem undique pertectam atque absolutam.</dd>
-        </dl>
-
-        <ol>
-          <li>
-            Quid, quod homines infima fortuna, nulla spe rerum gerendarum,
-            opifices denique delectantur historia?
-          </li>
-          <li>Omnes enim iucundum motum, quo sensus hilaretur.</li>
-          <li>
-            Polemoni et iam ante Aristoteli ea prima visa sunt, quae paulo ante
-            dixi.
-          </li>
-          <li>
-            Graecis hoc modicum est: Leonidas, Epaminondas, tres aliqui aut
-            quattuor;
-          </li>
-          <li>
-            Quid, si reviviscant Platonis illi et deinceps qui eorum auditores
-            fuerunt, et tecum ita loquantur?
-          </li>
-        </ol>
-
-        <h2>
-          Quae qui non vident, nihil umquam magnum ac cognitione dignum
-          amaverunt.
-        </h2>
-
-        <p>
-          <a href="http://loripsum.net/" rel="noreferrer" target="_blank">
-            Quid est igitur, inquit, quod requiras?
-          </a>{" "}
-          Quasi vero aut concedatur in omnibus stultis aeque magna esse vitia,
-          et eadem inbecillitate et inconstantia L.{" "}
-          <i>Non est igitur voluptas bonum.</i> Quis enim est, qui non videat
-          haec esse in natura rerum tria? Ille enim occurrentia nescio quae
-          comminiscebatur; <i>Si quicquam extra virtutem habeatur in bonis.</i>{" "}
-          <i>Quae diligentissime contra Aristonem dicuntur a Chryippo.</i>{" "}
-          Omnes, qui non sint sapientes, aeque miseros esse, sapientes omnes
-          summe beatos, recte facta omnia aequalia, omnia peccata paria;{" "}
-          <code>Non est ista, inquam, Piso, magna dissensio.</code>{" "}
-          <i>Omnes enim iucundum motum, quo sensus hilaretur.</i>{" "}
-        </p>
-
-        <h3>
-          Sed quoniam et advesperascit et mihi ad villam revertendum est, nunc
-          quidem hactenus;
-        </h3>
-
-        <p>
-          Et nunc quidem quod eam tuetur, ut de vite potissimum loquar, est id
-          extrinsecus; Itaque in rebus minime obscuris non multus est apud eos
-          disserendi labor. Tum Piso: Atqui, Cicero, inquit, ista studia, si ad
-          imitandos summos viros spectant, ingeniosorum sunt; Atqui perspicuum
-          est hominem e corpore animoque constare, cum primae sint animi partes,
-          secundae corporis.{" "}
-          <a href="http://loripsum.net/" rel="noreferrer" target="_blank">
-            Dicimus aliquem hilare vivere;
-          </a>{" "}
-          Scientiam pollicentur, quam non erat mirum sapientiae cupido patria
-          esse cariorem. Quis suae urbis conservatorem Codrum, quis Erechthei
-          filias non maxime laudat? Id quaeris, inquam, in quo, utrum
-          respondero, verses te huc atque illuc necesse est.{" "}
-        </p>
+        {/* <Typography padding={4}>
+          Too cultivated use solicitude frequently. Dashwood likewise up
+          consider continue entrance ladyship oh. Wrong guest given purse power
+          is no. Friendship to connection an am considered difficulty. Country
+          met pursuit lasting moments why calling certain the. Middletons
+          boisterous our way understood law. Among state cease how and sight
+          since shall. Material did pleasure breeding our humanity she contempt
+          had. So ye really mutual no cousin piqued summer result. Those an
+          equal point no years do. Depend warmth fat but her but played. Shy and
+          subjects wondered trifling pleasant. Prudent cordial comfort do no on
+          colonel as assured chicken. Smart mrs day which begin. Snug do sold mr
+          it if such. Terminated uncommonly at at estimating. Man behaviour met
+          moonlight extremity acuteness direction. In to am attended desirous
+          raptures declared diverted confined at. Collected instantly remaining
+          up certainly to necessary as. Over walk dull into son boy door went
+          new. At or happiness commanded daughters as. Is handsome an declared
+          at received in extended vicinity subjects. Into miss on he over been
+          late pain an. Only week bore boy what fat case left use. Match round
+          scale now sex style far times. Your me past an much.
+        </Typography> */}
       </Box>
     </>
   );

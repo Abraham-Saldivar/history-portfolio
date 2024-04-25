@@ -25,10 +25,17 @@ code {
   position: relative;
   cursor: pointer;
 }
-
+.pointer{
+  position: relative;
+    cursor: pointer;
+}
+.toaster-options {
+  font-family: Lato;
+  font-weight: 900;
+}
 .popup {
   position: absolute;
-  top: -25px;
+  top: 100px;
   /* Adjust as needed */
   left: 50%;
   /* Adjust as needed */
@@ -43,6 +50,9 @@ code {
   /* Ensure it appears on top of other content */
   display: block;
 }
+/* .popup:hover{
+  background-color: yellow !important;
+} */
 
 
 
