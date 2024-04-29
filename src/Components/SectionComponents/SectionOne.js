@@ -5,18 +5,16 @@ import {
   DialogTitle,
   DialogContent,
   DialogContentText,
+  Link,
 } from "@mui/material";
 import SixHundredT from "../Timelines/SixHundredT";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import QuizFormOne from "../QuizComponents/QuizFormOne";
 import toast from "react-hot-toast";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import ImageOne from "/Users/abraham_s/Commissions/history-portfolio/src/Components/Images/Court Ruling on Anthony Johnson and His Servant.jpeg";
 
 function SectionOne() {
-  const [hoveredSection, setHoveredSection] = useState(null);
-  const [popupPosition, setPopupPosition] = useState({ x: 0, y: 0 });
-  const [showPopup, setShowPopup] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -30,36 +28,30 @@ function SectionOne() {
     setOpen(false);
   };
 
-  const handleHoverSection = (section) => {
-    setHoveredSection(section);
-  };
+  const linkOneEK =
+    "https://encyclopediavirginia.org/primary-documents/a-report-of-a-comittee-from-an-assembly-concerning-the-freedome-of-elizabeth-key-1656/";
 
   const sources = [
     {
-      citation:
-        "Berlin, Ira. Many Thousands Gone : The First Two Centuries of Slavery in North America. Cambridge: Harvard University Press, 1998. Accessed April 25, 2024. ProQuest Ebook Central, 29.",
+      id: 2,
+      title:
+        '"Berlin, Ira. Many Thousands Gone : The First Two Centuries of Slavery in North America. Cambridge: Harvard University Press, 1998. Accessed April 25, 2024. ProQuest Ebook Central, 29."',
+      url: "",
+      other: "Book",
     },
-    // Add more sources as needed
+    {
+      id: 3,
+      title:
+        "“Court Ruling on Anthony Johnson and His Servant (1655).” Encyclopedia Virginia, December 7, 2020. https://encyclopediavirginia.org/primary-documents/court-ruling-on-anthony-johnson-and-his-servant-1655/.",
+      url: "https://encyclopediavirginia.org/primary-documents/court-ruling-on-anthony-johnson-and-his-servant-1655/",
+    },
+    {
+      id: 4,
+      title:
+        "“An act declaring that baptisme of slaves doth not exempt them from bondage” (1667)",
+      url: "https://encyclopediavirginia.org/primary-documents/an-act-declaring-that-baptisme-of-slaves-doth-not-exempt-them-from-bondage-1667/",
+    },
   ];
-  useEffect(() => {
-    document.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
-
-  const handleMouseEnter = () => {
-    setShowPopup(true);
-  };
-
-  const handleMouseLeave = () => {
-    setShowPopup(false);
-  };
-
-  const handleMouseMove = (e) => {
-    setPopupPosition({ x: e.clientX, y: e.clientY });
-  };
 
   function copyToClipboard(url) {
     navigator.clipboard.writeText(url);
@@ -68,6 +60,7 @@ function SectionOne() {
       className: "toaster-options",
     });
   }
+
   return (
     <>
       <Box padding={5} className="text">
@@ -125,29 +118,6 @@ function SectionOne() {
             </DialogContent>
           </Dialog>
         )}
-        {showPopup && (
-          <Typography
-            className="popup"
-            style={{
-              top: popupPosition.y,
-              left: popupPosition.x,
-              transform: "translateX(-50%)",
-            }}
-          >
-            {sources.map((source, index) => (
-              <div key={index}>
-                <Typography
-                  component="span"
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                  sx={{ display: "inline", fontWeight: 900, cursor: "copy" }}
-                >
-                  {source.citation}
-                </Typography>
-              </div>
-            ))}
-          </Typography>
-        )}
       </Box>
       <Box>
         <Typography
@@ -168,19 +138,44 @@ function SectionOne() {
         padding={5}
       >
         <Box width={{ minWidth: "50%" }}>
-          <SixHundredT handleHoverSection={handleHoverSection} />
+          <SixHundredT />
         </Box>
         <Box display="flex" flexDirection="column" justifyContent="center">
           <Typography
-            sx={{ marginBottom: "25px", display: "inline" }}
-            className={hoveredSection === "Timeline One" ? "highlighted" : ""}
+            sx={{
+              fontWeight: 900,
+              fontSize: "4vh",
+              marginBottom: "25px",
+              textAlign: "center",
+              textDecoration: "underline",
+            }}
           >
+            The Charter Generation
+          </Typography>
+          <Typography sx={{ marginBottom: "25px", display: "inline" }}>
+            {" "}
+            In Ira berlin’s, Many Thousands Gone, he accounts that historically
+            Africans and Europeans have been intertwined with each other during
+            the 1600s. Creole societies emerged in trading centers the first of
+            which to appear were in trading centers along the coasts of Africa.
+            These creoles developed intercultural skills and used these skills
+            to mediate trade between Europeans and Africans. When Europe started
+            colonizing the Americas, creole slaves followed the expansion, so
+            creole societies emerged on the rim of the atlantic. During this
+            era, skin color had little effect on their lives. Instead the skills
+            they had as intermediaries proved their merit. Although creoles that
+            identified more towards either European or African culture were
+            shunned by the opposite, structurally there was nothing prohibiting
+            them from improving their status. Even some creole slaves were able
+            to purchase their freedom and continue their lives as merchants. It
+            was apparent that there were just societies with slaves, not slave
+            societies which the colonies came to be in the 1700s.
+          </Typography>
+          <Typography sx={{ marginBottom: "25px", display: "inline" }}>
             “Atlantic Creoles shaped Black America’s charter generations in the
             Chesapeake”{" "}
             <Typography
-              onClick={() => copyToClipboard(sources[0].citation)}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
+              onClick={() => copyToClipboard(sources[0])}
               sx={{ display: "inline", fontWeight: 900, cursor: "copy" }}
             >
               <sup>(2)</sup>
@@ -218,19 +213,23 @@ function SectionOne() {
           </Box>
           <Box padding={2}>
             <LazyLoadImage
+              onMouseEnter={() =>
+                toast("Click image to read document", {
+                  icon: "ℹ️",
+                  duration: 4000,
+                  position: "top-left",
+                })
+              }
               className="pointer"
               onClick={handleClickOpen}
               src={ImageOne}
               width={500}
               height={600}
+              title="Court Ruling on Anthony Johnson and His Servant"
               alt="Court Ruling on Anthony Johnson and His Servant"
             />
           </Box>
-
-          <Typography
-            sx={{ marginBottom: "25px" }}
-            className={hoveredSection === "Timeline Two" ? "highlighted" : ""}
-          >
+          <Typography sx={{ marginBottom: "25px" }}>
             In this case Casar sues Johnson for keep him as a servant longer
             than his time. However the court upholds Johnson’s ownership of him.
             This case shows two things. The first the slave’s representation in
@@ -244,6 +243,197 @@ function SectionOne() {
             an individual defined their status and class. Evidently this idea is
             reflected in both legislation and ideology.
           </Typography>
+          <Typography sx={{ marginBottom: "25px" }}>
+            However, it is not completely true that legislation and common
+            ideology did not lean towards white people. There was sure to be a
+            bias to white characteristics. The case of Elizabeth key
+            demonstrates this. Similar to Casar, Elizabeth Key was a former
+            slave who sued for her freedom, but unlike Casar she succeeds and
+            escapes slavery. Originally she was indentured under John Mottram,
+            but after his death his heirs declared her enslaved.
+          </Typography>
+          <Typography sx={{ marginBottom: "25px" }}>
+            Her victory was based on two factors: Heritage and Key’s practice of
+            christianity{" "}
+            <Typography
+              onClick={() => copyToClipboard(sources[1].citation)}
+              sx={{ display: "inline", fontWeight: 900, cursor: "copy" }}
+            >
+              <sup>(3).</sup>
+            </Typography>{" "}
+            She had been born from an English man and an enslaved woman. By
+            common law it was established that the child of a freeman and
+            enslaved woman was free. Furthermore, on account of her faith, she
+            had been a devoted christian which was viewed favorably. The
+            judicial ruling reflects the ideology that is less grounded on the
+            basis of skin color but rather her “white” characteristics. To be
+            sure, Elizabeth was black by color, but her partially white heritage
+            and her adherence to christianity brought the committee to her
+            favor. It is true that there had been apparent preferences and
+            biases which both legislation and common practices were not void of,
+            but it was also clear that African Americans still had agency in
+            their lives despite their skin color.
+          </Typography>
+          <Box
+            padding={4}
+            style={{ outline: "2px dashed blue", marginBottom: "25px" }}
+          >
+            <Typography
+              sx={{
+                fontWeight: 900,
+                fontSize: "2vh",
+                textAlign: "center",
+                textDecoration: "underline",
+              }}
+            >
+              Commitee Report
+            </Typography>
+            <Typography>
+              {" "}
+              It appeareth to us that shee is the daughter of Thomas Key by
+              severall Evidences and by a fine imposed upon the said Thomas for
+              getting her mother with Child of the said Thomas That she hath bin
+              by verdict of a Jury impannelled 20th January 1655 in the County
+              of Northumberland found to be free by severall oathes which the
+              Jury desired might be Recorded That by the Comon Law the Child of
+              a Woman slave begott by a freeman ought to bee free That shee hath
+              bin long since Christened Col. Higginson being her God father and
+              that by report shee is able to give a very good account of her
+              fayth That Thomas Key sould her onely for nine yeares to Col.
+              Higginson with severall conditions to use her more Respectfully
+              then a Comon servant or slave That in case Col. Higginson had gone
+              for England within nine yeares hee was bound to carry her with him
+              and pay her passage and not to dispose of her to any other For
+              theise Reasons wee conceive the said Elizabeth ought to bee free
+              and that her last Master should give her Corne and Cloathes and
+              give her satisfaction for the time shee hath served longer then
+              Shee ought to have done. But forasmuch as noe man appeared against
+              the said Elizabeths petition wee thinke not fitt a determinative
+              judgement should passe but that the County or Quarter Court where
+              it shall be next tried to take notice of this to be the sence of
+              the Burgesses of this present Assembly and that unless [original
+              torn] shall appear to be executed and reasons [original torn]
+              opposite part Judgement by the said Court be given [accordingly?]
+              Charles Norwood Clerk Assembly James Gaylord hath deposed that
+              this is a true coppy James Gaylord
+            </Typography>
+
+            <Box display="flex" flexDirection="row" justifyContent="center">
+              <Link
+                href={linkOneEK}
+                padding={2}
+                sx={{ textAlign: "center", color: "blue" }}
+              >
+                Source
+              </Link>
+            </Box>
+          </Box>
+          <Typography style={{ marginBottom: "25px" }}>
+            In 1667, Virginia passes legislation that restricts the status of
+            any enslaved person on the basis of baptism to be changed in
+            response to Key’s case. This hints towards the beginning of the
+            institution of slavery. Where key had the agency to change her
+            enslaved status through faith, the assembly aimed to take that away
+            from other enslaved persons. This is one instance which the colonies
+            were starting to develop into slave societies.Of course naturally,
+            with the influx of Africans coming in the later centuries, there
+            needed to be a system to control them and their further generations.
+          </Typography>
+          {/*  */}
+          <Box
+            padding={3}
+            style={{ outline: "2px dashed green", marginBottom: "25px" }}
+          >
+            <Typography
+              sx={{
+                textAlign: "starts",
+                fontSize: "2vh",
+                fontWeight: 900,
+                textDecoration: "underline",
+                marginBottom: "25px",
+              }}
+            >
+              Full Text
+            </Typography>
+            <Typography>
+              (4) "WHEREAS some doubts have risen whether children that are
+              slaves by birth, and by the charity and piety of their owners made
+              pertakers of the blessed sacrament of baptisme, should be vertue
+              of their baptisme be made ffree; It is enacted and declared by
+              this grand assembly, and the authority thereof, that the
+              conferring of baptisme doth not alter the condition of the person
+              as to his bondage or ffreedome; that diverse masters, ffreed from
+              this doubt, may more carefully endeavor the propagation of
+              christianity by permitting children, though slaves, or those of
+              greater growth if capable to be admitted to that sacrament.""
+            </Typography>
+          </Box>
+          <Box sx={{ marginBottom: "25px" }}>
+            <Typography>
+              There were many more others like Anthony: Emmanuel Driggus,
+              Domingo Matthews, Beshaw Ferdinando (4). The lines between slave
+              and indentured servants were blurred and not specifically defined
+              by race which allowed these men to not only escape slavery but
+              build a prosperous life for themselves. Only until the
+              implementation of legislation was the line between slavery and
+              indentured servitude became more clear. As the colonies developed
+              into slave societies and as further legislation were integrated,
+              existing biases were reinforced. This formed the ideology of black
+              and white. The institution assumed the blacks as enslaved and
+              stripped them of any agency over their lives while indentured
+              servants, whites in general, retained their mobility on the
+              socio-economic ladder. As a result colonial America transformed
+              from being a society with slaves to a slave society centered and
+              built on Africans.
+            </Typography>
+          </Box>{" "}
+          <Box
+            padding={4}
+            style={{ outline: "2px dashed blue", marginBottom: "25px" }}
+          >
+            <Typography
+              sx={{
+                textAlign: "center",
+                fontSize: "2vh",
+                fontWeight: 900,
+                textDecoration: "underline",
+                marginBottom: "25px",
+              }}
+            >
+              Citations:
+            </Typography>
+            {sources.map((source, index) => {
+              return (
+                <Box key={index} sx={{ marginBottom: "15px" }}>
+                  {source.url === "" ? (
+                    <>
+                      <Typography
+                        sx={{
+                          display: "inline",
+                          fontWeight: 900,
+                          marginBottom: "25px",
+                        }}
+                      >
+                        ({source.id}){source.other} : {"     "}
+                        <Typography sx={{ display: "inline" }}>
+                          {source.title}
+                        </Typography>
+                      </Typography>
+                    </>
+                  ) : (
+                    <Link
+                      sx={{ color: "blue" }}
+                      href={source.url}
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      ({source.id}){source.title}
+                    </Link>
+                  )}
+                </Box>
+              );
+            })}
+          </Box>
         </Box>
       </Box>
       <Box>
