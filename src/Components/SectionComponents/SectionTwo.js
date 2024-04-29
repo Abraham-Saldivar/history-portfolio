@@ -15,7 +15,6 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import toast from "react-hot-toast";
 
 function SectionTwo() {
-  const [hoveredSection, setHoveredSection] = useState(null);
   const [showAlert, setShowAlert] = useState(false);
   const [open, setOpen] = useState(false);
   const sources = [
@@ -32,10 +31,6 @@ function SectionTwo() {
     //   url: "",
     // },
   ];
-
-  const handleHoverSection = (section) => {
-    setHoveredSection(section);
-  };
 
   const handleClickOpen = () => {
     setShowAlert(true);
@@ -110,9 +105,9 @@ function SectionTwo() {
         justifyContent="center"
         padding={5}
       >
-        <Box width={{ minWidth: "50%" }}>
-          <SevenHundredT handleHoverSection={handleHoverSection} />
-        </Box>
+        {/* <Box width={{ minWidth: "50%" }}>
+          <SevenHundredT />
+        </Box> */}
         <Box display="flex" flexDirection="column" justifyContent="center">
           <Typography
             sx={{
@@ -126,12 +121,7 @@ function SectionTwo() {
             Title
           </Typography>{" "}
           <Box display="flex" flexDirection="column" justifyContent="center">
-            <Typography
-              sx={{ marginBottom: "25px" }}
-              className={
-                hoveredSection === "Timeline Three" ? "highlighted" : ""
-              }
-            >
+            <Typography sx={{ marginBottom: "25px" }}>
               In the early years of American history, the 1700s was known for
               its extensive use of African slaves due to booming agricultural
               prospects. Major changes were occurring from the early colonial
@@ -158,12 +148,7 @@ function SectionTwo() {
             >
               Black codes
             </Typography>{" "}
-            <Typography
-              sx={{ marginBottom: "25px" }}
-              className={
-                hoveredSection === "Timeline Four" ? "highlighted" : ""
-              }
-            >
+            <Typography sx={{ marginBottom: "25px" }}>
               A set of laws known as the Louisiana Black Codes came into effect
               in the early 18th and beginning of 19th centuries in Louisiana and
               Southern states. African Americans’ socioeconomic status was
@@ -214,7 +199,12 @@ function SectionTwo() {
               emancipated slaves and abolished slavery in the north.
             </Typography>
           </Box>
-          <Box padding={2} sx={{ marginBottom: "25px" }}>
+          <Box
+            display="flex"
+            flexDirection="row"
+            justifyContent="center"
+            sx={{ marginBottom: "25px" }}
+          >
             <LazyLoadImage
               onMouseEnter={() =>
                 toast("Click image to read document", {

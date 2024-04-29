@@ -137,9 +137,9 @@ function SectionOne() {
         justifyContent="center"
         padding={5}
       >
-        <Box width={{ minWidth: "50%" }}>
+        {/* <Box width={{ minWidth: "50%" }}>
           <SixHundredT />
-        </Box>
+        </Box> */}
         <Box display="flex" flexDirection="column" justifyContent="center">
           <Typography
             sx={{
@@ -211,7 +211,13 @@ function SectionOne() {
               "Court Ruling on Anthony Johnson and His Servant (1655)"
             </Typography>
           </Box>
-          <Box padding={2}>
+          <Box
+            display="flex"
+            flexDirection="row"
+            justifyContent="center"
+            sx={{ marginBottom: "25px" }}
+            padding={2}
+          >
             <LazyLoadImage
               onMouseEnter={() =>
                 toast("Click image to read document", {

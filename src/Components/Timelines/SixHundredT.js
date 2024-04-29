@@ -26,17 +26,6 @@ function SixHundredT({ handleHoverSection, handleClick }) {
     <>
       <Box sx={{ width: "100%" }}>
         <Timeline position="alternate-reverse">
-          {/* <Box display="flex" flexDirection="row" justifyContent="flex-start">
-            <Button
-              onClick={showInformation}
-              color="black"
-              startIcon={<InfoIcon />}
-              sx={{ color: "#fefefe" }}
-              variant="contained"
-            >
-              TIMELINE INFO
-            </Button>
-          </Box> */}
           <TimelineItem>
             <TimelineSeparator>
               <TimelineDot />
@@ -55,12 +44,9 @@ function SixHundredT({ handleHoverSection, handleClick }) {
                   <TimelineContent>
                     <Typography
                       id={item.replace(" ", "")} // Add this line to set the id attribute
-                      // onClick={() => handleClick(item)}
                       paddingRight={2}
                       paddingLeft={2}
                       className="timeline_item"
-                      onMouseOver={() => handleHoverSection(item)}
-                      onMouseLeave={() => handleHoverSection(!item)}
                     >
                       {item}
                     </Typography>

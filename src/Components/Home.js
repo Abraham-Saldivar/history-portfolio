@@ -54,8 +54,8 @@ function Home() {
         )}
         <Typography
           padding={4}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          // onMouseEnter={handleMouseEnter}
+          // onMouseLeave={handleMouseLeave}
           sx={{
             lineHeight: 2.5,
             fontSize: "calc(1.5px + 2vmin)",

@@ -4,37 +4,17 @@ import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
-import { Box, Typography, Button } from "@mui/material";
-import InfoIcon from "@mui/icons-material/Info";
-import toast from "react-hot-toast";
+import { Box, Typography } from "@mui/material";
 
 function EightHundredT({ handleHoverSection }) {
   const data = {
     sections: ["Timeline Five", "Timeline Six"],
   };
-  const showInformation = () => {
-    console.log("Click on time period in order to get more information.");
-    toast("Click on a time period in order to highlight the given text.", {
-      icon: "ℹ️",
-      duration: 4000,
-      position: "top-left",
-    });
-  };
+
   return (
     <>
       <Box sx={{ width: "100%" }}>
         <Timeline position="alternate-reverse">
-          <Box display="flex" flexDirection="row" justifyContent="flex-start">
-            <Button
-              onClick={showInformation}
-              color="black"
-              startIcon={<InfoIcon />}
-              sx={{ color: "#fefefe" }}
-              variant="contained"
-            >
-              TIMELINE INFO
-            </Button>
-          </Box>
           <TimelineItem>
             <TimelineSeparator>
               <TimelineDot />
@@ -55,8 +35,6 @@ function EightHundredT({ handleHoverSection }) {
                       paddingRight={2}
                       paddingLeft={2}
                       className="timeline_item"
-                      onMouseOver={() => handleHoverSection(item)}
-                      onMouseLeave={() => handleHoverSection(!item)}
                     >
                       {item}
                     </Typography>
