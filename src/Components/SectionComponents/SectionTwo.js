@@ -109,17 +109,6 @@ function SectionTwo() {
           <SevenHundredT />
         </Box> */}
         <Box display="flex" flexDirection="column" justifyContent="center">
-          <Typography
-            sx={{
-              fontWeight: 900,
-              fontSize: "4vh",
-              marginBottom: "25px",
-              textAlign: "center",
-              textDecoration: "underline",
-            }}
-          >
-            Title
-          </Typography>{" "}
           <Box display="flex" flexDirection="column" justifyContent="center">
             <Typography sx={{ marginBottom: "25px" }}>
               In the early years of American history, the 1700s was known for

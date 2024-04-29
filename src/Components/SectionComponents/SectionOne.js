@@ -137,9 +137,6 @@ function SectionOne() {
         justifyContent="center"
         padding={5}
       >
-        {/* <Box width={{ minWidth: "50%" }}>
-          <SixHundredT />
-        </Box> */}
         <Box display="flex" flexDirection="column" justifyContent="center">
           <Typography
             sx={{

@@ -10,11 +10,15 @@ import Home from "./Components/Home";
 import NavBar from "./Components/NavBar";
 import SectionTwo from "./Components/SectionComponents/SectionTwo";
 import SectionThree from "./Components/SectionComponents/SectionThree";
-import AboutUs from "./Components/AboutUs";
-import { CssBaseline } from "@mui/material";
+import Citations from "./Components/Citations";
+import { CssBaseline, Box } from "@mui/material";
 import { Toaster } from "react-hot-toast";
-
+import { useState, useEffect } from "react";
+import toast from "react-hot-toast";
+import Loading from "./Loading";
 function App() {
+  const [loading, setLoading] = useState(false);
+
   let theme = createTheme({
     palette: {
       primary: {
@@ -44,6 +48,18 @@ function App() {
       fontFamily: ["Lato"].join(","),
     },
   });
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    toast("Click on the tabs go through the centuries in the United States", {
+      icon: "🤓",
+      duration: 4000,
+      position: "top-left",
+    });
+  }, []);
 
   // loripsum.net/api/3/plaintext
 
@@ -51,17 +67,32 @@ function App() {
     <>
       <CssBaseline />
       <ThemeProvider theme={theme}>
-        <Toaster />
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="section-one" element={<SectionOne />} />
-          <Route path="section-two" element={<SectionTwo />} />
-          <Route path="section-three" element={<SectionThree />} />
-          <Route path="about-us" element={<AboutUs />} />
-
-          {/* <Route path="news-and-events" element={<NewsPage />} /> */}
-        </Routes>
+        {loading ? (
+          <>
+            <CssBaseline />
+            <Box
+              sx={{
+                width: "100%",
+                height: "100vh",
+                bgcolor: "primary.main",
+              }}
+            >
+              <Loading />
+            </Box>
+          </>
+        ) : (
+          <>
+            <Toaster />
+            <NavBar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="section-one" element={<SectionOne />} />
+              <Route path="section-two" element={<SectionTwo />} />
+              <Route path="section-three" element={<SectionThree />} />
+              <Route path="citations" element={<Citations />} />
+            </Routes>
+          </>
+        )}
       </ThemeProvider>
     </>
   );

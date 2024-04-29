@@ -133,9 +133,9 @@ function NavBar() {
               <CustomButton href="section-three" color="black" variant="text">
                 1800's
               </CustomButton>
-              {/* <CustomButton href="about-us" color="black" variant="text">
-                About Us
-              </CustomButton> */}
+              <CustomButton href="citations" color="black" variant="text">
+                Bibliography
+              </CustomButton>
             </Box>
           </Box>
         </Toolbar>
